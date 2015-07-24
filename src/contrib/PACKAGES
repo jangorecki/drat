@@ -1,7 +1,27 @@
+Package: anchormodeling
+Version: 0.4.1
+Depends: data.table (>= 1.9.5)
+Imports: R6, shiny, shinydashboard, DT, rpivotTable
+Suggests: testthat, jsonlite
+Enhances: microbenchmark
+License: GPL-3
+MD5sum: 036ecf7c77db5ad419f4763798b09138
+NeedsCompilation: no
+
 Package: drat
 Version: 0.0.4
 Suggests: git2r, knitr
 License: GPL (>= 2)
 MD5sum: 96a3a1f4d859b60fc83066f66e9d4761
+NeedsCompilation: no
+
+Package: dtq
+Version: 0.1.9.4
+Depends: R (>= 3.2.0), data.table (>= 1.9.5)
+Imports: R6
+Suggests: testthat, knitr
+Enhances: microbenchmark
+License: GPL-3
+MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
