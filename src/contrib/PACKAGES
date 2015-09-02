@@ -25,3 +25,11 @@ License: GPL-3
 MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
+Package: rbitcoind
+Version: 0.2
+Imports: jsonlite, httr, R6
+Suggests: data.table, qrcode, RSQLite, shiny, DT
+License: GPL-3
+MD5sum: 4326d62016fcc98a1942b53f6c5d32cf
+NeedsCompilation: no
+
