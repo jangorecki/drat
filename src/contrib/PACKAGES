@@ -36,6 +36,16 @@ License: GPL-3
 MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
+Package: logR
+Version: 1.9.9.5
+Depends: data.table (>= 1.9.5)
+Imports: DBI
+Suggests: testthat, mailR, shiny, RJDBC, RH2, knitr
+Enhances: microbenchmark
+License: GPL-3
+MD5sum: 0e3680f5331b185ab3b000de45bf2be5
+NeedsCompilation: no
+
 Package: Rbitcoin
 Version: 0.9.3.9.1
 Depends: data.table (>= 1.9.5)
