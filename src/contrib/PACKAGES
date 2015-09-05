@@ -46,6 +46,14 @@ License: GPL-3
 MD5sum: 0e3680f5331b185ab3b000de45bf2be5
 NeedsCompilation: no
 
+Package: microbenchmark
+Version: 1.4.3
+Imports: graphics
+Suggests: multcomp, ggplot2
+License: BSD_2_clause + file LICENSE
+MD5sum: 6c89f380db490bd94100db645f3aff34
+NeedsCompilation: yes
+
 Package: Rbitcoin
 Version: 0.9.3.9.1
 Depends: data.table (>= 1.9.5)
