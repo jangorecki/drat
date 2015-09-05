@@ -47,11 +47,11 @@ MD5sum: 0e3680f5331b185ab3b000de45bf2be5
 NeedsCompilation: no
 
 Package: microbenchmark
-Version: 1.4.3
+Version: 2.4.3
 Imports: graphics
 Suggests: multcomp, ggplot2
 License: BSD_2_clause + file LICENSE
-MD5sum: 6c89f380db490bd94100db645f3aff34
+MD5sum: c1a3daee7bdeae06b9fde162425dd42a
 NeedsCompilation: yes
 
 Package: Rbitcoin
