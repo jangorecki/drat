@@ -37,13 +37,13 @@ MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
 Package: logR
-Version: 1.9.9.5
+Version: 1.9.9.6
 Depends: data.table (>= 1.9.5)
 Imports: DBI
 Suggests: testthat, mailR, shiny, RJDBC, RH2, knitr
 Enhances: microbenchmark
 License: GPL-3
-MD5sum: 0e3680f5331b185ab3b000de45bf2be5
+MD5sum: 719af0231a78c869bef1d4738a7bea6a
 NeedsCompilation: no
 
 Package: microbenchmark
