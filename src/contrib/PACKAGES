@@ -60,7 +60,7 @@ Depends: data.table (>= 1.9.5)
 Imports: RCurl, digest, jsonlite
 Suggests: knitr
 License: MIT + file LICENSE
-MD5sum: d9043e1a1519e5c6cb0f1d4a607759ac
+MD5sum: ae0c8e40b7db0a48601e5f176d544358
 NeedsCompilation: no
 
 Package: rbitcoind
