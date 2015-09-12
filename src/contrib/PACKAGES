@@ -37,21 +37,20 @@ MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
 Package: logR
-Version: 1.9.9.6
-Depends: data.table (>= 1.9.5)
+Version: 2.0
+Depends: data.table (>= 1.9.5), RPostgreSQL
 Imports: DBI
-Suggests: testthat, mailR, shiny, RJDBC, RH2, knitr
 Enhances: microbenchmark
 License: GPL-3
-MD5sum: 719af0231a78c869bef1d4738a7bea6a
+MD5sum: 8195b2dce06215a68c19e36c6f036d6e
 NeedsCompilation: no
 
 Package: microbenchmark
-Version: 2.4.3
+Version: 1.4-2.5
 Imports: graphics
-Suggests: multcomp, ggplot2
+Suggests: multcomp
 License: BSD_2_clause + file LICENSE
-MD5sum: c1a3daee7bdeae06b9fde162425dd42a
+MD5sum: f21b57ad250976b929ed05b7205a63ea
 NeedsCompilation: yes
 
 Package: Rbitcoin
