@@ -37,12 +37,12 @@ MD5sum: 59ffa423d54e6ab8ad8bababe21097b2
 NeedsCompilation: no
 
 Package: logR
-Version: 2.0
-Depends: data.table (>= 1.9.5), RPostgreSQL
+Version: 2.1.0
+Depends: data.table (>= 1.9.6), RPostgreSQL
 Imports: DBI
-Enhances: microbenchmark
+Enhances: microbenchmarkCore
 License: GPL-3
-MD5sum: 8195b2dce06215a68c19e36c6f036d6e
+MD5sum: db1c85c2ef62eeb286e2d56ea7d9ee9c
 NeedsCompilation: no
 
 Package: microbenchmark
