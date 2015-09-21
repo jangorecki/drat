@@ -54,12 +54,12 @@ MD5sum: f21b57ad250976b929ed05b7205a63ea
 NeedsCompilation: yes
 
 Package: Rbitcoin
-Version: 0.9.4
-Depends: data.table (>= 1.9.5)
+Version: 0.9.5
+Depends: data.table (>= 1.9.6)
 Imports: RCurl, digest, jsonlite
 Suggests: knitr
 License: MIT + file LICENSE
-MD5sum: ae0c8e40b7db0a48601e5f176d544358
+MD5sum: 922ed700175899cb2271003b69ebc723
 NeedsCompilation: no
 
 Package: rbitcoind
