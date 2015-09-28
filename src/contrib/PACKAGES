@@ -70,3 +70,10 @@ License: GPL-3
 MD5sum: 4326d62016fcc98a1942b53f6c5d32cf
 NeedsCompilation: no
 
+Package: RPostgreSQL
+Version: 0.4.1
+Depends: R (>= 2.9.0), methods, DBI (>= 0.1-4)
+License: GPL-2 | file LICENSE
+MD5sum: 0373c0ca2e0b1e1f20590f7f4fea4507
+NeedsCompilation: yes
+
