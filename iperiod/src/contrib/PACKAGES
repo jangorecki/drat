@@ -1,0 +1,11 @@
+Package: data.table
+Version: 1.9.7
+Depends: R (>= 2.14.1)
+Imports: methods, chron
+Suggests: ggplot2 (>= 0.9.0), plyr, reshape, reshape2, testthat (>=
+        0.4), hexbin, fastmatch, nlme, xts, bit64, gdata,
+        GenomicRanges, caret, knitr, curl, zoo, plm
+License: GPL (>= 2)
+MD5sum: 62c1267828c825f9e7e9920843758fcf
+NeedsCompilation: yes
+
