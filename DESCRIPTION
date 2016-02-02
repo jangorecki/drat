@@ -16,5 +16,5 @@ Description: Creation and Use of R Repositories via two helper functions
  or a local network. Drat is a recursive acronym: Drat R Archive Template. 
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2016-02-02 00:47:52 UTC; jan
-Built: R 3.2.3; ; 2016-02-02 00:50:55 UTC; unix
+Packaged: 2016-02-02 19:14:00 UTC; root
+Built: R 3.2.3; ; 2016-02-02 19:29:33 UTC; unix
