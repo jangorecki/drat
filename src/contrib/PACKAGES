@@ -9,10 +9,11 @@ MD5sum: 036ecf7c77db5ad419f4763798b09138
 NeedsCompilation: no
 
 Package: drat
-Version: 0.0.4
+Version: 0.1.0
+Imports: utils
 Suggests: git2r, knitr
 License: GPL (>= 2)
-MD5sum: 96a3a1f4d859b60fc83066f66e9d4761
+MD5sum: 3a460b57cb079d5f5ebbab9d9b4a3590
 NeedsCompilation: no
 
 Package: dtq
