@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Move older copies of packages to an archive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for archivePackages {drat}"><tr><td>archivePackages {drat}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Move older copies of packages to an archive</h2>
+
+<h3>Description</h3>
+
+<p>The function moves older versions of packages into a CRAN-style
+archive folder.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
+  type = "source", pkg)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>repopath</code></td>
+<td>
+<p>Character variable with the path to the repo;
+defaults to the value of the &ldquo;dratRepo&rdquo; option with
+&ldquo;&quot;~/git/drat&quot;&rdquo; as fallback</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>Character variable for the type of repository, so far &ldquo;source&rdquo;</p>
+</td></tr>
+<tr valign="top"><td><code>pkg</code></td>
+<td>
+<p>Optional character variable specifying a package name(s), whose
+older versions should be archived. If missing (the default), archiving is
+performed on all packages.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is still undergoing development and polish and may
+change in subsequent versions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Thomas J. Leeper
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+  archivePackages()   # archive all older package versions
+  archivePackages(pkg = "drat")  # archive older copies of just one package
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>drat</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Intialize a git repo for drat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for initRepo {drat}"><tr><td>initRepo {drat}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Intialize a git repo for drat</h2>
+
+<h3>Description</h3>
+
+<p>This helper function create a new repository, creates and checks
+out &lsquo;gh-pages&rsquo; branch and fills it with the required path.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+initRepo(name = "drat", basepath = "~/git")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A character variable with the name the new repository,
+the default is &ldquo;drat&rdquo;.</p>
+</td></tr>
+<tr valign="top"><td><code>basepath</code></td>
+<td>
+<p>A character variable with path to the directory in
+which the new repository is to be created. The default value is
+&ldquo;&quot;~/git&quot;&rdquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Currently only &lsquo;src/contrib&rsquo; for source repositories is
+supported.
+</p>
+<p>This function is still undergoing development and polish and may
+change in subsequent versions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The function is invoked for its side-effects and only
+returns <code>NULL</code> invisibly.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Dirk Eddelbuettel
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>drat</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Insert a package source or binary file into a drat repository</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for insertPackage {drat}"><tr><td>insertPackage {drat}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Insert a package source or binary file into a drat repository</h2>
+
+<h3>Description</h3>
+
+<p>R can use multiple archives: CRAN, BioConductor and Omegahat have
+been supported for years.  It is equally easy to add local
+archives from the same machine, or local network, or university /
+company network as well as other publically available
+repositories.  This function aids in the process, and defaults to
+inserting a given source archive into a given repository.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
+  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
+  "prune"))
+
+insert(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file</code></td>
+<td>
+<p>An R package in source or binary format,</p>
+</td></tr>
+<tr valign="top"><td><code>repodir</code></td>
+<td>
+<p>A local directory corresponding to the repository
+top-level directory.</p>
+</td></tr>
+<tr valign="top"><td><code>commit</code></td>
+<td>
+<p>Either boolean toggle to select automatic git operations
+&lsquo;add&rsquo;, &lsquo;commit&rsquo;, and &lsquo;push&rsquo; or, alternatively,
+a character variable can be used to specify a commit message; this also
+implies the &lsquo;TRUE&rsquo; values in other contexts.</p>
+</td></tr>
+<tr valign="top"><td><code>pullfirst</code></td>
+<td>
+<p>Boolean toggle to call <code>git pull</code> before inserting the package.</p>
+</td></tr>
+<tr valign="top"><td><code>action</code></td>
+<td>
+<p>A character string containing one of: &ldquo;none&rdquo;
+(the default; add the new package into the repo, effectively masking
+previous versions), &ldquo;archive&rdquo; (place any previous versions into
+a package-specific archive folder, creating such an archive if it does
+not already exist), or &ldquo;prune&rdquo; (calling <code><a href="pruneRepo.html">pruneRepo</a></code>).</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>For the aliases variant, a catch-all collection of
+parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function inserts the given (source or binary) package file
+into the given (local) package repository and updates the
+index. By setting the <code>commit</code> option to <code>TRUE</code>, one can
+then push to a remote git code repository. If the
+<code><a href="../../git2r/html/git2r.html">git2r</a></code> package is installed, it is used for
+the interaction with the git repository; otherwise the <code>git</code>
+shell command is used.
+</p>
+<p>An aliased function <code>insert</code> is also available, but not
+exported via <code>NAMESPACE</code> to not clobber a possibly unrelated
+function; use it via <code>drat:::insert()</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>NULL is returned.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Dirk Eddelbuettel
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+  insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
+  insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
+
+## End(Not run)
+## Not run: 
+  insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
+  insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>drat</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

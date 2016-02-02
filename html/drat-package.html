@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Easy-to-use package repository creation and access</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for drat-package {drat}"><tr><td>drat-package {drat}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+Easy-to-use package repository creation and access
+</h2>
+
+<h3>Description</h3>
+
+<p>The drat package permits user to create and use ad-hoc package
+repositories. It takes advantage of GitHub accounts and
+&lsquo;gh-pages&rsquo; branches which automatically become web-accessible
+and can be used to provide a repository.  Alternatively, custom
+repository paths and addresses can be used.
+</p>
+
+
+<h3>Details</h3>
+
+<p>Given a user account on GitHub, say, &lsquo;eddelbuettel&rsquo;, and a repository
+&lsquo;drat&rsquo;, we can infer an top-level repostory URL as such as
+<a href="http://eddelbuettel.github.io/drat">http://eddelbuettel.github.io/drat</a> by supplying only the username (as
+the rest is inferred by defaults).  This allows us to create easily
+useable, identifiable and shareable per-user repositories&mdash;without
+the user having to create and administer a webserver anywhere.
+</p>
+<p>Two higher level functions then allow both insertion of (source or
+binary) packages, as well as addition of a given drat repository to an
+R session so that package in the repository can be accesses.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Dirk Eddelbuettel
+</p>
+<p>Maintainer: Dirk Eddelbuettel &lt;edd@debian.org&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>The R Installation and Administration manual has more and details about
+repository creation
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../utils/html/update.packages.html">update.packages</a></code>,
+<code><a href="../../utils/html/available.packages.html">available.packages</a></code>,
+<code><a href="../../utils/html/install.packages.html">install.packages</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  ## Not run: 
+  drat::addRepo("eddelbuettel")   # adds the repo of GitHub user 'eddelbuettel'
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>drat</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
