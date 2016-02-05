@@ -13,7 +13,7 @@ Version: 0.1.0
 Imports: utils
 Suggests: git2r, knitr
 License: GPL (>= 2)
-MD5sum: 40faf9aaeb6fd3da2329f83791e8ccca
+MD5sum: 713ccbecda4adf8ff855e424181e7318
 NeedsCompilation: no
 
 Package: dtq
