@@ -14,14 +14,14 @@ artifactsManual = function(file, pkg, repodir) {
         warning = function(w) w
     )
     # stop on warning too
-    if(inherits(r, "error") || inherits(r, "warning")) stop(sprintf("Installation of %s into temporary library '%s' failed with %s: %s.", pkg, tmp.lib, if(inherits(r, "error")) "error" else "warning", as.character(r$message)), call. = FALSE)
-    on.exit(try(remove.packages(pkg, lib = tmp.lib), silent=TRUE))
+    if (inherits(r, "error") || inherits(r, "warning")) stop(sprintf("Installation of %s into temporary library '%s' failed with %s: %s.", pkg, tmp.lib, if(inherits(r, "error")) "error" else "warning", as.character(r$message)), call. = FALSE)
+    on.exit(try(utils::remove.packages(pkg, lib = tmp.lib), silent=TRUE)) # `utils::` to avoid RStudio issue
     
     inst.pkg = system.file(package = pkg, lib.loc = tmp.lib)
     html.source = file.path(inst.pkg, "html")
-    if(!file.exists(html.source)) return(character())
+    if (!file.exists(html.source)) return(character())
     html.target = file.path(repodir, "library", pkg, "html")
-    if(file.exists(html.target)) unlink(html.target, force = TRUE)
+    if (file.exists(html.target)) unlink(html.target, force = TRUE)
     dir.create(html.target, recursive = TRUE)
     file.copy(list.files(html.source, full.names = TRUE), html.target, overwrite = TRUE)
     html.files = file.path("library", pkg, "html", basename(list.files(html.target)))
@@ -31,23 +31,25 @@ artifactsManual = function(file, pkg, repodir) {
 artifactsDoc = function(pkg, repodir) {
     rcheck.source = paste0(pkg, ".Rcheck")
     doc.source = file.path(rcheck.source, pkg, "doc")
-    if(!file.exists(doc.source)) return(character())
+    if (!file.exists(doc.source)) return(character())
     doc.target = file.path(repodir, "library", pkg, "doc")
-    if(file.exists(doc.target)) unlink(doc.target, force = TRUE)
+    if (file.exists(doc.target)) unlink(doc.target, force = TRUE)
     dir.create(doc.target, recursive = TRUE)
     file.copy(list.files(doc.source, full.names = TRUE), doc.target, overwrite = TRUE)
     doc.files = file.path("library", pkg, "doc", basename(list.files(doc.target)))
     doc.files[file.exists(doc.target)]
 }
 
-artifactsDescription = function(pkg, repodir) {
+artifactsPkg = function(pkg, repodir) {
     rcheck.source = paste0(pkg, ".Rcheck")
-    desc.source = file.path(rcheck.source, pkg, "DESCRIPTION")
-    if(!file.exists(desc.source)) return(character())
-    desc.target = file.path(repodir, "library", pkg, "DESCRIPTION")
-    file.copy(desc.source, desc.target, overwrite = TRUE)
-    desc.file = file.path("library", pkg, basename(desc.target))
-    desc.file[file.exists(desc.target)]
+    pkg.source = file.path(rcheck.source, pkg, c("DESCRIPTION", "NEWS", "NEWS.md"))
+    pkg.source = pkg.source[file.exists(pkg.source)]
+    if (!length(pkg.source)) return(character())
+    dir.create(file.path(repodir, "library", pkg), recursive = TRUE, showWarnings = FALSE)
+    pkg.target = file.path(repodir, "library", pkg, basename(pkg.source))
+    file.copy(pkg.source, pkg.target, overwrite = TRUE)
+    pkg.file = file.path("library", pkg, basename(pkg.target))
+    pkg.file[file.exists(pkg.target)]
 }
 
 artifactsRcheck = function(pkg, repodir, files = c("00install.out", "00check.log")) {
@@ -83,15 +85,15 @@ artifactsGit = function() {
     if (is.na(gitref)) gitref = Sys.getenv("TRAVIS_COMMIT", unset = NA)
     
     # if none then make 0 length chars
-    gitrefname = na.omit(gitrefname)
-    gitref = na.omit(gitref)
+    gitrefname = gitrefname[!is.na(gitrefname)]
+    gitref = gitref[!is.na(gitref)]
     
     c(gitrefname = gitrefname, gitref = gitref)
 }
 
-artifactsIndex = function(pkg, repodir, repo.url = character(), repo.cran = character(), man = character(), doc = character(), desc = character(), log = character(), git = character()) {
+artifactsIndex = function(pkg, repodir, repo.url = character(), repo.cran = character(), man = character(), doc = character(), log = character(), git = character()) {
     
-    pkgdesc = file.path(repodir, "library", pkg, "DESCRIPTION") # already should be copied here by insertManual, optionally as source of the build
+    pkgdesc = file.path(repodir, "library", pkg, "DESCRIPTION") # already should be copied here by artifactsPkg, optionally as source of the build
     stopifnot(
         file.exists(pkgdesc),
         file.exists(repodir),
@@ -118,6 +120,9 @@ artifactsIndex = function(pkg, repodir, repo.url = character(), repo.cran = char
     
     # Additional_repositories are included into install string
     repo.url = c(repo.url, additional.repo.url)
+    
+    # Append cran repo when desired
+    repo.url = c(repo.url, repo.cran)
     
     # build html file
     html = c(
@@ -199,8 +204,8 @@ insertArtifacts = function(file = list.files(pattern = "*\\.tar\\.gz$"), repodir
     # artifactsDoc - vignettes (from Rcheck)
     doc = artifactsDoc(pkg = pkg, repodir = repodir)
     
-    # artifactsDescription - DESCRIPTION file (from Rcheck)
-    desc = artifactsDescription(pkg = pkg, repodir = repodir)
+    # artifactsPkg - DESCRIPTION, NEWS.md files (from Rcheck)
+    pkg.files = artifactsPkg(pkg = pkg, repodir = repodir) # not passed to index.html generator as doesn't need to be linked
     
     # artifactsRcheck - 00install.out, 00check.log (from Rcheck)
     log = artifactsRcheck(pkg = pkg, repodir = repodir, files = c("00install.out", "00check.log", log.files))
@@ -210,7 +215,7 @@ insertArtifacts = function(file = list.files(pattern = "*\\.tar\\.gz$"), repodir
     
     # artifactsIndex
     invisible(identical(
-        artifactsIndex(pkg=pkg, repodir=repodir, repo.url=repo.url, repo.cran=repo.cran, man=man, doc=doc, desc=desc, log=log, git=git),
+        artifactsIndex(pkg=pkg, repodir=repodir, repo.url=repo.url, repo.cran=repo.cran, man=man, doc=doc, log=log, git=git),
         "index.html"
     ))
 }
